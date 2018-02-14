@@ -95,7 +95,7 @@ repositories {
 }
 
 def uploads = modules.keySet()
-uploads.each { target ->
+/*uploads.each { target ->
     task("${target}Upload", type:GradleBuild) {
         tasks = ['bintrayUpload']
         buildFile project.file("upload.gradle")
@@ -112,7 +112,7 @@ uploads.each { target ->
         ]
         startParameter.useEmptySettings()
     }
-}
+}*/
 
 task update_kotlin_compiler(type: DefaultTask) {
     dependsOn uploads.collect{"${it}Upload"}
