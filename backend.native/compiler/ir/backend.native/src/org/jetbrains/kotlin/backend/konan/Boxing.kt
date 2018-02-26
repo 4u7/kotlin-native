@@ -187,6 +187,7 @@ private val ValueType.llvmType
         else            -> error("Cannot box value of type $this")
     }
 
+// memory usage is around 20kb
 private val defaultCacheRange = mapOf(
         ValueType.BYTE  to (-128 to 127),
         ValueType.SHORT to (-128 to 127),
@@ -204,6 +205,7 @@ private val emptyCacheRange = mapOf(
 )
 
 fun KonanTarget.getBoxCacheRange(valueType: ValueType): Pair<Int, Int> = when (this) {
+    // Just an example
     is KonanTarget.ZEPHYR -> emptyCacheRange[valueType]!!
     else -> defaultCacheRange[valueType]!!
 }
